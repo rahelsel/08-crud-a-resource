@@ -33,13 +33,11 @@
 
   Article.prototype.insertRecord = function() {
     webDB.execute(
-      [
-        {
-          // NOTE: this method will be called elsewhere after we retrieve our JSON
-          'sql': '', // <----- TODO: complete our SQL query here, inside the quotes.
-          'data': [this.title, this.category, this.author, this.authorUrl, this.publishedOn, this.body]
-        }
-      ]
+      [{
+        // NOTE: insertRecord should be called elsewhere after we retrieve our JSON
+        'sql': '', // <----- TODO: complete our SQL query here, inside the quotes.
+        'data': [this.title, this.category, this.author, this.authorUrl, this.publishedOn, this.body]
+      }]
     );
   };
 
@@ -73,17 +71,14 @@
       });
   };
 
-
   Article.prototype.deleteRecord = function() {
     webDB.execute(
-      [
-        {
-          /* NOTE: this is an advanced admin option, so you will need to test
-              out an individual query in the console */
-          'sql': '', // <---TODO: Delete an article instance from the database based on its id:
-          'data': [this.id]
-        }
-      ]
+      [{
+        /* NOTE: this is an advanced admin option, so you will need to test
+          out an individual article in the console */
+        'sql': '', // <---TODO: Delete an article instance from the database based on its id:
+        'data': [this.id]
+      }]
     );
   };
 
