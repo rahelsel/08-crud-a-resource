@@ -49,10 +49,10 @@
 
   Article.fetchAll = function(nextFunction) {
     webDB.execute(
-      'SELECT * FROM articles', // <-----TODO: fill these quotes to query our table.
+      'SELECT * FROM articles', // <-----DONE: fill these quotes to query our table.
       function(rows) {
         if (rows.length) {
-        /* TODO:
+        /* DONE:
            1 - Use Article.loadAll to instanitate these rows,
            2 - Pass control to the view by invoking the next function that
                 was passed in to Article.fetchAll */
@@ -65,6 +65,7 @@
               /* TODO:
                1 - 'insert' the newly-instantiated article in the DB:
              */
+              article.insertRecord();
             });
             // Now get ALL the records out of the database:
             webDB.execute(
