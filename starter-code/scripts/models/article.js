@@ -17,7 +17,13 @@
   // Set up a DB table for articles.
   Article.createTable = function() {
     webDB.execute(
-      '', // TODO: What SQL command do we run here inside these quotes?
+      'CREATE TABLE articles('+
+      ' title VARCHAR, '+
+      ' category VARCHAR,'+
+      ' author VARCHAR,'+
+      ' authorUrl VARCHAR,'+
+      ' publishedOn VARCHAR,'+
+      ' body VARCHAR);', // DONE: What SQL command do we run here inside these quotes?
       function() {
         console.log('Successfully set up the articles table.');
       }
@@ -35,7 +41,7 @@
     webDB.execute(
       [{
         // NOTE: insertRecord should be called elsewhere after we retrieve our JSON
-        'sql': '', // <----- TODO: complete our SQL query here, inside the quotes.
+        'sql': 'INSERT INTO articles (title, category, author, authorUrl, publishedOn, body) VALUES(?, ?, ?, ?, ?, ?)', // <----- DONE: complete our SQL query here, inside the quotes.
         'data': [this.title, this.category, this.author, this.authorUrl, this.publishedOn, this.body]
       }]
     );
