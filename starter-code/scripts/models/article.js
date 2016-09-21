@@ -1,12 +1,10 @@
 (function(module) {
   function Article (opts) {
-    // DONE: Convert property assignment to Functional Programming style.
+    // NOTE: this converts previous constructor to Functional Programming style.
     Object.keys(opts).forEach(function(prop) {
       this[prop] = opts[prop];
     }, this); // The optional 'this' here is necessary to keep context.
   }
-
-  Article.allArticles = [];
 
   Article.prototype.toHtml = function(scriptTemplateId) {
     var template = Handlebars.compile(scriptTemplateId.text());
@@ -91,7 +89,7 @@
 
   Article.clearTable = function() {
     webDB.execute(
-      'DELETE ...;' // <----TODO: delete all records from the articles table.
+      '' // <----TODO: delete all records from the articles table.
     );
   };
 
