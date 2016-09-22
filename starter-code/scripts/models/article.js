@@ -17,13 +17,14 @@
   // Set up a DB table for articles.
   Article.createTable = function() {
     webDB.execute(
-      'CREATE TABLE articles('+
-      ' title VARCHAR, '+
-      ' category VARCHAR,'+
-      ' author VARCHAR,'+
-      ' authorUrl VARCHAR,'+
-      ' publishedOn VARCHAR,'+
-      ' body VARCHAR);', // DONE: What SQL command do we run here inside these quotes?
+      'CREATE TABLE IF NOT EXISTS articles(' +
+      'id INTEGER PRIMARY KEY, ' +
+      'title VARCHAR, ' +
+      'category VARCHAR,' +
+      'author VARCHAR,' +
+      'authorUrl VARCHAR,' +
+      'publishedOn VARCHAR,' +
+      'body VARCHAR);', // DONE: What SQL command do we run here inside these quotes?
       function() {
         console.log('Successfully set up the articles table.');
       }
@@ -87,7 +88,7 @@
       [{
         /* NOTE: this is an advanced admin option, so you will need to test
           out an individual article in the console */
-        'sql': '', // <---TODO: Delete an article instance from the database based on its id:
+        'sql': 'DELETE FROM articles WHERE id = ?', // <---DONE: Delete an article instance from the database based on its id:
         'data': [this.id]
       }]
     );
@@ -137,7 +138,8 @@
     });
   };
 
-// TODO: ensure that our table has been setup.
+// DONE: ensure that our table has been setup.
+  Article.createTable();
 
   module.Article = Article;
 })(window);
