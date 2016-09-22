@@ -96,7 +96,7 @@
 
   Article.clearTable = function() {
     webDB.execute(
-      '' // <----TODO: delete all records from the articles table.
+      'DELETE FROM articles' // <----DONE: delete all records from the articles table.
     );
   };
 
